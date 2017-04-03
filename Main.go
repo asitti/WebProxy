@@ -57,6 +57,7 @@ func proxy(response http.ResponseWriter, request *http.Request) {
 
 	// Get all parameters:
 	uri := request.RequestURI
+	log.Printf("uri='%s'\n", uri)
 
 	// Loop over all configured hosts:
 	for _, host := range proxyHosts {
