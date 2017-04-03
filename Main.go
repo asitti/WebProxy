@@ -31,7 +31,7 @@ func main() {
 
 		proxyHosts = append(proxyHosts, elements[0])
 		proxyDestinations[elements[0]] = elements[1]
-		log.Printf("Add configuration: host='%s', destination='%s'.\n", elements[0], elements[1])
+		log.Printf("Add configuration: host='%s', destination='%s'.\n", elements[0], proxyDestinations[elements[0]])
 	}
 
 	// Wire the handlers:
