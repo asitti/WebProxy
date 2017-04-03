@@ -10,7 +10,7 @@ import (
 )
 
 var (
-	proxyHosts        []string          = make([]string, 10)
+	proxyHosts        []string          = make([]string, 0)
 	proxyDestinations map[string]string = make(map[string]string)
 )
 
@@ -63,7 +63,7 @@ func proxy(response http.ResponseWriter, request *http.Request) {
 
 		// Known?
 		if strings.Contains(requestedHost, host) {
-			log.Printf("host='%s'\n", host)
+
 			// Read the destination:
 			destination := proxyDestinations[host]
 
