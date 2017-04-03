@@ -24,7 +24,7 @@ func main() {
 	for _, arg := range os.Args[1:] {
 		elements := strings.Split(arg, ` => `)
 
-		if len(elements != 2) {
+		if len(elements) != 2 {
 			log.Printf("The configuration '%s' uses a invalid format. Necessary format is: 'my-domain => http://www.other-domain.com'.\n", arg)
 			continue
 		}
