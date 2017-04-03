@@ -39,4 +39,4 @@ ENV CONFIGURATION="my-domain => http://www.another-domain.com"
 WORKDIR /home
 
 # The default command to run, if a container starts:
-CMD ["/home/WebProxy", "echo ${CONFIGURATION}"]
+CMD /home/WebProxy $CONFIGURATION
