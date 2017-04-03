@@ -20,6 +20,7 @@ func main() {
 	log.Println(`WebProxy v1.0.0`)
 
 	// Parse all configurations:
+	log.Printf("The configuration: %s\n", os.Args[1:])
 	for _, arg := range os.Args[1:] {
 		elements := strings.Split(arg, ` => `)
 		proxyHosts = append(proxyHosts, elements[0])
