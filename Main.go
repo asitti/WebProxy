@@ -63,7 +63,7 @@ func proxy(response http.ResponseWriter, request *http.Request) {
 
 		// Known?
 		if strings.Contains(requestedHost, host) {
-
+			log.Printf("host='%s'\n", host)
 			// Read the destination:
 			destination := proxyDestinations[host]
 
