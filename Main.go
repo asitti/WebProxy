@@ -82,7 +82,8 @@ func proxy(response http.ResponseWriter, request *http.Request) {
 				http.NotFound(response, request)
 				return
 			} else {
-				// Copy some headers:
+
+				// Copy the headers:
 				clientRequest.Header.Add("Content-Type", request.Header.Get("Content-Type"))
 
 				// Perform the request:
@@ -91,8 +92,13 @@ func proxy(response http.ResponseWriter, request *http.Request) {
 					http.NotFound(response, request)
 					return
 				} else {
-					defer clientResponse.Body.Close()
+
+					// First, copy the headers:
+					response.Header().Add("Content-Type", clientResponse.Header.Get("Content-Type"))
+
+					// Copy the body:
 					io.Copy(response, clientResponse.Body)
+					clientResponse.Body.Close()
 					return
 				}
 			}
