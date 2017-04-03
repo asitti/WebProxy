@@ -28,10 +28,10 @@ RUN	cd /go/src/github.com/SommerEngineering/WebProxy && \
 	chmod 0777 /home/WebProxy
 
 # Run anything below as nobody:
-USER root
+USER nobody
 
-# Service provides HTTP by port 80:
-EXPOSE 80
+# Service provides HTTP by port 50000:
+EXPOSE 50000
 
 ENV CONFIGURATION="my-domain => http://www.another-domain.com"
 
