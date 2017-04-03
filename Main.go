@@ -82,6 +82,9 @@ func proxy(response http.ResponseWriter, request *http.Request) {
 				http.NotFound(response, request)
 				return
 			} else {
+				// Copy some headers:
+				clientRequest.Header.Add("Content-Type", request.Header.Get("Content-Type"))
+
 				// Perform the request:
 				if clientResponse, clientErrDo := client.Do(clientRequest); clientErrDo != nil {
 					log.Printf("Was not able to perform the proxy request to destination '%s' for host '%s': %s\n", destination, requestedHost, clientErrDo.Error())
