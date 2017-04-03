@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"io"
 	"log"
 	"net/http"
@@ -70,8 +71,13 @@ func proxy(response http.ResponseWriter, request *http.Request) {
 			// Create a client in order to connect both:
 			client := &http.Client{}
 
+			// Copy the body:
+			buffer := &bytes.Buffer{}
+			io.Copy(buffer, request.Body)
+			request.Body.Close()
+
 			// Create the client request:
-			if clientRequest, clientErr := http.NewRequest(request.Method, destination+uri, request.Body); clientErr != nil {
+			if clientRequest, clientErr := http.NewRequest(request.Method, destination+uri, buffer); clientErr != nil {
 				log.Printf("Was not able to create connection to destination '%s' for host '%s': %s\n", destination, requestedHost, clientErr.Error())
 				http.NotFound(response, request)
 				return
