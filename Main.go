@@ -40,7 +40,7 @@ func main() {
 
 	// Set up the server:
 	server := &http.Server{}
-	server.Addr = ":80"
+	server.Addr = ":50000"
 	server.Handler = serverMUX
 	server.SetKeepAlivesEnabled(true)
 	server.ReadTimeout = 60 * time.Second
