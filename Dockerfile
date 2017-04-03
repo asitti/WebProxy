@@ -28,7 +28,7 @@ RUN	cd /go/src/github.com/SommerEngineering/WebProxy && \
 	chmod 0777 /home/WebProxy
 
 # Run anything below as nobody:
-USER nobody
+USER root
 
 # Service provides HTTP by port 80:
 EXPOSE 80
