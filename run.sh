@@ -1,3 +1,2 @@
 #!/bin/bash
-arguments=( $CONFIGURATION )
-./WebProxy "${arguments[@]}"
+./WebProxy ${CONFIGURATION}
