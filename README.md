@@ -1,5 +1,6 @@
 # Web Proxy
 [![Docker Automated buil](https://img.shields.io/docker/automated/jrottenberg/ffmpeg.svg)](https://hub.docker.com/r/sommereng/web-proxy/)
+
 This is a simple web proxy e.g. for Docker setups. The purpose is to run this proxy on port `80` and additional web projects on several other ports e.g. `50001`, `50002`, etc. Through the web proxy, all web projects are available by port `80`. The differentiation is possible by different domains for these web projects.
 
 # Configuration
