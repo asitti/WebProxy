@@ -35,7 +35,7 @@ USER nobody
 # Service provides HTTP by port 50000:
 EXPOSE 50000
 
-ENV CONFIGURATION="'myhost1 => http://www.another-domain.com' 'myhost2 => http://www.test.com'"
+ENV 'CONFIGURATION="myhost1 => http://www.another-domain.com" "myhost2 => http://www.test.com"'
 
 # Define the working directory:
 WORKDIR /home
